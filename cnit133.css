@@ -1,0 +1,58 @@
+* { margin: 0; padding: 0; }
+
+body{
+    background-color: black;
+    font-family: 'Quicksand', sans-serif;
+    padding:0;
+    margin:0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+.layout {
+    display: grid;
+    grid-template-columns:100px 220px 220px 220px 220px auto;
+    grid-template-rows: 150px 150px 150px 75px auto;
+}
+
+h3 {font-size: 20px;}
+
+.header {grid-row-start: 1; grid-row-end: 2; grid-column-start: 2; grid-column-end: 6; text-align: left; padding: 50px; background-color:darkgrey; border: 2px solid white;}
+
+.middlebox {grid-row-start: 2; grid-row-end: 4; grid-column-start: 2; grid-column-end: 6; text-align: left; padding: 50px; background-color:white; border-left: 2px solid white; border-right: 2px solid darkgrey;}
+
+.hw2 {grid-row-start: 2; grid-row-end: 3; grid-column-start: 2; grid-column-end: 3; text-align: center; padding: 50px; background-color:red; border: 2px solid white;}
+
+.hw3 {grid-row-start: 2; grid-row-end: 3; grid-column-start:3; grid-column-end: 4; text-align: center; padding: 50px; background-color:orange; border: 2px solid white;}
+
+.hw4 {grid-row-start: 2; grid-row-end: 3; grid-column-start: 4; grid-column-end: 5; text-align: center; padding: 50px; background-color:yellow; border: 2px solid white;}
+
+.hw5 {grid-row-start: 2; grid-row-end: 3; grid-column-start: 5; grid-column-end: 6; text-align: center; padding: 50px; background-color:greenyellow; border: 2px solid white;}
+
+.hw6 {grid-row-start: 3; grid-row-end: 4; grid-column-start: 2; grid-column-end:3; text-align: center; padding: 50px; background-color:mediumspringgreen; border: 2px solid white;}
+
+.hw7 {grid-row-start: 3; grid-row-end: 4; grid-column-start: 3; grid-column-end: 4; text-align: center; padding: 50px; background-color: cornflowerblue; border: 2px solid white;}
+
+.hw8 {grid-row-start: 3; grid-row-end: 4; grid-column-start: 4; grid-column-end: 5; text-align: center; padding: 50px; background-color:mediumpurple; border: 2px solid white;}
+
+.box8 {grid-row-start: 3; grid-row-end: 4; grid-column-start: 5; grid-column-end: 6; text-align: center; background-color:mediumpurple; border: 2px solid white;}
+
+.footer {grid-row-start: 4; grid-row-end: 5; grid-column-start: 2; grid-column-end: 6; text-align: right; padding: 15px; background-color:darkgrey;border: 2px solid white;}
+
+.layout a:link, a:visited {
+    color: black;
+    text-decoration: none;}
+
+.footer a:link, a:visited {
+    color: black;
+    padding-left: 40px;
+    text-decoration: none;}
+
+.layout a:hover {
+    color: darkslategray;
+    text-decoration: underline;
+}  
+
+.menu {grid-row-start: 2; grid-row-end: 5; grid-column-start: 1; grid-column-end: 2; text-align: right; padding-right: 20px; padding-top: 20px; background-color:darkgrey; font-size: 20px; line-height: 2; font-weight: bold;}
+
+.topleft {grid-row-start: 1; grid-row-end: 2; grid-column-start: 1; grid-column-end: 2;border: 2px solid black;}
