@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Watching Videos inline with Ilios</title>
+   <link rel="stylesheet" href="ilios.css">
+    <style>
+    #panel, #flip{
+        text-align: center;
+        background-color: lightgray;
+        border: solid 1px darkgrey;
+    }
+    
+    #panel {
+        padding: 40px;
+        display: none;
+    }
+    </style>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+</head>
+<body>
+  <div class="layout"> 
+
+<div class="learningMaterials">
+    <h3>Session Learning Materials</h3>
+    <ul>
+    <li>Introduction to Intermediary Metablism-video (linked below)
+    </li>
+        <li>
+        Pathways of Human Metabolism map
+            </li>
+        
+    </ul>
+      <div id="flip"><h4>Click to Watch video here</h4></div>
+        <div id="panel"><p><iframe id="kaltura_player_1610141821" src="https://cdnapisec.kaltura.com/p/1672761/sp/167276100/embedIframeJs/uiconf_id/30255452/partner_id/1672761?iframeembed=true&amp;playerId=kaltura_player_1610141821&amp;flashvars[playlistAPI.kpl0Id]=1_rztppzzy"
+        allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" width="740" height="330" frameborder="0"></iframe></p></div>
+</div>
+      
+      <div class="courseLearningMaterials">
+           <h3>Course Learning Materials</h3>
+        <ul>
+        <li>REGN Reader</li>
+        <li>REGN Small group Workbook</li>
+        <li>REGN compiled Ojbectives - Exam 1</li>
+        <li>REGN compiled Ojbectives - Exam 2</li>
+        <li>REGN Zoom links and Ifo</li>
+        </ul>
+      </div>
+    
+<div class="SessionObjectives">
+      
+      <h3>Session Objectives</h3>
+      </div>
+      
+      <div class="CourseObjectives">
+      
+      <h3>Course Objectives</h3>
+      </div>
+      
+<script>
+    $(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+});
+    </script>
+</div> 
+      </body>
+
+<p></p>
+</html>
