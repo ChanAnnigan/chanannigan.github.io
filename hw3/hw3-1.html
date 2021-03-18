@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+
+<title>CNIT 133 - Homework 3</title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework3">
+<meta name="author" content="Chantilly Apollon">
+
+    <style>
+
+    
+    label   {
+        font-weight: bold; 
+        color:blueviolet; 
+        font-size: 14px;
+        }
+    
+        
+        table, th, td {
+            padding: 10px;
+            text-align: left;
+            margin-left: 5px;}
+        
+        input   {
+        text-align: right;
+        background-color: floralwhite;
+        box-sizing: border-box;
+        border: 2px solid blueviolet;
+        border-radius: 4px;
+        }
+
+        #results {
+                margin-left: 10px;
+            }
+        .error {
+            color: darkgray;
+            margin-left: 2px;
+            font-weight: normal;
+        }
+        
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<script>
+$(document).ready(function(){
+$("#studentGrades").validate({
+// Rules for each input item
+rules:
+{
+hwAvg: { required: true, number: true, min: 0, max: 100},
+midExam: { required: true, number: true, min: 0, max: 100},
+final: { required: true, number: true, min: 0, max: 100},
+participation: { required: true, number: true, min: 0, max: 100}
+}
+                             
+});
+});
+
+function calculateGrade ()  {
+        if ($("#studentGrades").valid()) 
+            {
+        
+            //create and initialize variables
+            var hwAvg, midExam, final, participation, grade; 
+    
+            hwAvg = parseFloat(document.getElementById("hwAvg").value);
+            midExam = parseFloat(document.getElementById("midExam").value);
+            final = parseFloat(document.getElementById("final").value);
+            participation = parseFloat(document.getElementById("participation").value);
+            
+            //calculate grade
+            grade = Math.round((0.5 * hwAvg) + (0.2 * midExam) + (0.2 * final) + (0.1 * participation));
+            
+            switch(true){
+                    
+                case (grade >= 90):
+                    document.getElementById("results").innerHTML = ("The final average is " + grade + ". <br>The final grade is A<br>Excellent work!")
+                    break;
+                    
+                case (grade >= 80):
+                    document.getElementById("results").innerHTML = ("The final average is " + grade + ". <br>The final grade is B.<br>Excellent work!")
+                    break;
+                    
+                case (grade >= 70):
+                    document.getElementById("results").innerHTML = ("The final average is " + grade + ". <br>The final grade is C.<br> Keep working and learning!")
+                    break;
+                    
+                case (grade >= 60):
+                    document.getElementById("results").innerHTML = ("The final average is " + grade + ". <br>The final grade is D.<br>Student must re-take the course.")
+                    break;
+                    
+                default:
+                    document.getElementById("results").innerHTML = ("The final average is " + grade + ". <br>The final grade is F. <br>Student must re-take the course.")
+                    break;
+            }
+            
+            }
+    }
+    
+</script>
+    
+</head>
+
+<body>
+
+<div class="layout">
+    <header class="header">
+        <h1>Homework 3 - Functions - Part 1</h1>
+    </header>
+    
+    <main class="middlebox">
+          <h1>Student Grades</h1><br>
+        <p>Instructions: Enter the student's scores to calculate the course grade.</p>
+        <br>
+          <form id="studentGrades" name="studentGrades">
+          <table>
+              <tr>
+              <td><label for="hwAvg">Homework Average</label></td>
+                  <td><input type="number" id="hwAvg" name="hwAvg" size="10" autofocus></td>
+            
+              </tr>
+               <tr>
+              <td><label for="midExam">Mid-term Exam Score</label></td>
+                  <td><input type="number" id="midExam" name="midExam" size="10"></td>
+              </tr>
+               <tr>
+              <td><label for="final">Final Exam Score</label></td>
+                  <td><input type="number" id="final" name="final" size="10"></td>
+              </tr>
+               <tr>
+              <td><label for="participation">Participation</label></td>
+                  <td><input type="number" id="participation" name="participation" size="10"></td>
+              </tr>
+                </table>
+              <br>
+            
+              <br>
+<input type="button" onclick="calculateGrade()" value="SUBMIT">
+<input type="reset" value="RESET" onclick="window.location.reload();">
+  
+       <br><br>  <hr><br>     
+           <span style="font-size: 16px; color: darkviolet; font-weight: bold;"> Current Grade:</span><br>
+    <div id="results"></div>
+          </form>
+    </main>
+    
+    <footer class="footerlong">
+        <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </footer>
+    
+    <div class="topleft">
+        <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw3.html">HW 3</a></p>
+        <p style="color: lightgray;font-size: 12px;">Part 1</p>
+        <p style="font-size: 12px;"><a href="hw3-Part2.html">Part 2</a></p>
+        <p style="font-size: 12px;"><a href="hw3-Part3.html">Part 3</a></p>
+        <p style="font-size: 12px;"><a href="hw3-ExtraCredit.html">Extra Credit</a></p>
+    </nav>
+
+</div>
+</body>
+</html>

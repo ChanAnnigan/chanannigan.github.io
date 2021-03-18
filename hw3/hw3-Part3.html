@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+
+<title>CNIT 133 - Homework 3 - Part 3 </title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework3">
+<meta name="author" content="Chantilly Apollon">
+<style>
+    label   {
+        font-weight: bold; 
+        color:blueviolet; 
+        font-size: 14px;
+        display: inline-block;
+        }
+     
+    table, tr, td {
+        font-weight: bold; 
+        color:blueviolet; 
+        font-size: 14px;
+        vertical-align: top;
+        padding: 5px;
+    }
+    
+     input {
+        text-align: right;
+        background-color: floralwhite;
+        box-sizing: border-box;
+        border: 2px solid blueviolet;
+        border-radius: 4px;
+        }
+    textarea {
+        background-color: floralwhite;
+        box-sizing: border-box;
+        border: 2px solid blueviolet;
+        border-radius: 4px;  
+        
+    }
+    
+    .error {
+            color: darkgray;
+            margin-left: 2px;
+            font-weight: normal;
+        }
+    </style>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+$("#temperatureConverter").validate({
+// Rules for each input item
+rules:
+{
+startingTemp: { required: true, number: true, min: -459.67}
+}
+                            
+});
+});   
+    
+
+    
+function calculateTemperature() {
+    
+if ($("#temperatureConverter").valid()) {
+            var startingTemp, finalTemp, results;
+            startingTemp= parseFloat(document.getElementById("startingTemp").value);
+            var farenheit = document.getElementById("farenheit");
+            var celsius = document.getElementById("celsius");
+    
+            if(celsius.checked==true)
+            { 
+                finalTemp = Math.round(5/9 * (startingTemp - 32));
+                results = startingTemp + "&#176;F is " + finalTemp + "&#176;C";
+                document.getElementById("results").innerHTML = results;
+            }
+            else if (farenheit.checked==true)
+            {
+                finalTemp = Math.round(9/5 * startingTemp + 32);
+                results = startingTemp + "&#176;C is " + finalTemp + "&#176;F";
+                document.getElementById("results").innerHTML = results;
+            }
+
+            else 
+            {
+                results = "Please select a temperature conversion option." ; 
+                document.getElementById("results").innerHTML = results        
+            }
+                 
+                 
+             }
+}    
+
+</script>
+
+</head>
+
+<body>
+<div class="layout">
+    <header class="header">
+        <h1>Homework 3 - Functions - Part 3</h1>
+        </header>
+      
+    <main class="middlebox">
+          <h3>Convert Temperatures between Farenheit and Celsius</h3>
+          <br>
+          <form id="temperatureConverter" name="temperatureConverter">
+          <p><label for="startingTemp">Enter the temperature to start with in either Farenheit or Celsius:</label></p>
+             <p> <input type="number" id="startingTemp" name="startingTemp" autofocus></p>
+             <br>
+              <p> <input type="radio" id="celsius" name="rd1" value="celsius"><label for="celsius"> Convert from &#176;F to &#176;C</label>
+              </p>
+              
+              <p> <input type="radio" id="farenheit" name="rd1" value="farenheit"><label for="farenheit"> Convert from &#176;C to &#176;F</label>
+              </p>
+        <br>
+              <input type="button" onclick="calculateTemperature()" value="CONVERT">
+              <input type="reset" value="RESET" onclick="window.location.reload();">  
+        </form>
+        <br>
+        <table>
+            <tr><td>
+                Results of Conversion:</td><td><textarea rows="6" cols="25" id="results" readonly>
+            
+        </textarea></td>
+                </tr>
+        </table>
+        </main>
+    
+    <footer class="footerlong">
+    <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </footer>
+    <div class="topleft">
+    <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw3.html">HW 3</a></p>
+        <p style="font-size: 12px;"><a href="hw3-1.html">Part 1</a></p>
+        <p style="font-size: 12px;"><a href="hw3-Part2.html">Part 2</a></p>
+        <p style="color: lightgray; font-size: 12px;">Part 3</p>
+        <p style="font-size: 12px;"><a href="hw3-ExtraCredit.html">Extra Credit</a></p>
+
+    </nav>
+    </div>
+</body>
+</html>

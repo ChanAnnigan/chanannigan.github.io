@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+
+<title>CNIT 133 - Homework 3 - Part 2</title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework3">
+<meta name="author" content="Chantilly Apollon">
+<style>
+    label   {
+        font-weight: bold; 
+        color:blueviolet; 
+        font-size: 14px;
+        display: inline-block;
+        width: 8em;
+        }
+    
+    table {
+        font-weight: bold; 
+        color:blueviolet; 
+        font-size: 14px;
+        text-align: right;
+        padding: 5px;
+    }
+    
+    input   {
+        text-align: right;
+        background-color: floralwhite;
+        box-sizing: border-box;
+        border: 2px solid blueviolet;
+        border-radius: 4px;
+        }
+    
+    th {
+        font-size: 18px;
+        font-weight: bold; 
+        color:black;
+        text-align: center;
+    }
+    ::placeholder {
+        font-size: 10px;
+    }
+    </style>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<script>
+$(function() {
+$( document ).tooltip();
+});
+
+    
+$(document).ready(function(){
+$("#sales").validate({
+// Rules for each input item
+rules:
+{
+item1Count: { required: true, number: true, min: 0},
+item2Count: { required: true, number: true, min: 0},
+item3Count: { required: true, number: true, min: 0},
+item4Count: { required: true, number: true, min: 0}
+}
+                            
+});
+});
+        
+function calculateCommission()
+        {
+        if ($("#sales").valid()) 
+             {
+                //create and initialize variables
+            var item1Count, item2Count, item3Count, item4Count, item1Total, item2Total, item3Total, item4Total, totalSold, totalEarnings;
+                
+                item1Count = parseFloat(document.getElementById("item1Count").value);
+                item2Count = parseFloat(document.getElementById("item2Count").value);
+                item3Count = parseFloat(document.getElementById("item3Count").value);
+                item4Count = parseFloat(document.getElementById("item4Count").value);
+                
+                item1Total = item1Count * 20.00;
+                item2Total = item2Count * 12.75;
+                item3Total = item3Count * 9.95;
+                item4Total = item4Count * 35.89;
+            
+                totalSold = item1Total + item2Total + item3Total + item4Total;
+                totalEarnings = 250 + 0.09 * totalSold;
+                
+                document.getElementById("item1Total").value = item1Total.toFixed(2);
+                document.getElementById("item2Total").value = item2Total.toFixed(2);
+                document.getElementById("item3Total").value = item3Total.toFixed(2);
+                document.getElementById("item4Total").value = item4Total.toFixed(2);
+                document.getElementById("totalSold").value = totalSold.toFixed(2);
+                document.getElementById("totalEarnings").value = totalEarnings.toFixed(2);
+                
+            
+                
+            }
+            
+        }
+            
+    </script>
+    
+    </head>
+
+<body>
+<div class="layout">
+    <header class="header">
+        <h1>Homework 3 - Functions - Part 2</h1>
+        </header>
+      <main class="middlebox">
+          <h1>Commission Calculator</h1><br>
+          <p>Enter the information below to calculate a salesperson's commission payment.</p><br>
+          <form name="employee">
+          <div class="tooltip"><label for="salesperson">Salesperson:</label>
+            <input id="salesperon" data-toggle="tooltip" title="Please make sure that the salesperson's name is spelled correctly"></div>
+          </form>
+          <br>
+          <h3>Input the quantity of items sold for each item number:</h3>
+          <br>
+          <form id = "sales" name="sales">
+              <table>
+                    <tr>
+                      <th>Item</th>
+                        <th style="width: 100px;">Price</th>
+                      <th>Number Sold</th>
+                      <th>Total</th>
+                    </tr>
+                  
+                   <tr>
+                      <td>1</td>
+                        <td>$20.99</td>
+                       <td><input type="number" id="item1Count" name="item1Count" size="5" placeholder="Item 1 Quantity" min=0></td>
+                       <td><input type="number" id="item1Total" name="item1Total" size="10" readonly> </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>$12.75</td>
+                    <td><input type="number" id="item2Count" name="item2Count" size="5" placeholder="Item 2 Quantity" min=0></td>
+                    <td><input type="number" id="item2Total" name="item2Total" size="10" readonly> </td>
+                </tr>
+                <tr>  
+                    <td>3</td>
+                    <td>$9.95</td>
+                    <td><input type="number" id="item3Count" name="item3Count" size="5" placeholder="Item 3 Quantity" min=0></td>
+                    <td><input type="number" id="item3Total" name="item3Total" size="10" readonly> </td>
+                </tr>
+                <tr>  
+                    <td>4</td>
+                    <td>$35.89</td>
+                    <td><input type="number" id="item4Count" name="item4Count" size="5" placeholder="Item 4 Quantity" min=0></td>
+                    <td><input type="number" id="item4Total" name="item4Total" size="10" readonly> </td>
+                 </tr>
+                  
+                <tr>  
+                    <td colspan="3">Total Amount Sold:</td>
+                    <td><input type="number" id="totalSold" name="totalSold" size="10" readonly> </td>
+                </tr>
+                  
+                     <tr>  
+                  <td colspan="3">Total Earnings:</td>
+                          <td><input type="number" id="totalEarnings" name="totalEarnings" size="10" readonly> </td>
+                    </tr>
+                  
+              </table>
+              <br>
+<input type="button" onclick="calculateCommission()" value="Calculate">
+<input type="reset" value="RESET" onclick="window.location.reload();">
+             
+          </form>
+          
+        </main>
+    <footer class="footerlong">
+    <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </footer>
+    <div class="topleft">
+    <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw3.html">HW 3</a></p>
+        <p style="font-size: 12px;"><a href="hw3-1.html">Part 1</a></p>
+        <p style="color: lightgray;font-size: 12px;">Part 2</p>
+        <p style="font-size: 12px;"><a href="hw3-Part3.html">Part 3</a></p>
+        <p style="font-size: 12px;"><a href="hw3-ExtraCredit.html">Extra Credit</a></p>
+
+    </nav>
+    </div>
+</body>
+</html>
