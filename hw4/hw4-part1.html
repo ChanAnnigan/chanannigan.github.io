@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+
+<title>CNIT 133 - Homework 4 - Part 1</title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework4">
+<meta name="author" content="Chantilly Apollon">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>
+$(function() {
+   $( "#draggable" ).draggable();
+});
+</script>
+    
+</head>
+
+<body>
+<div class="layout">
+    <header class="header">
+        <h1>CNIT 133 - Homework 4 - Part 1</h1>
+        </header>
+      <main class="middlebox">
+          <h3>Part 1a</h3>
+<script>   
+     var factor = 1;
+     for ( var number = 5; number <= 25; number += 4 )
+         {
+             factor *= number;
+         }
+     var factorFormatted = factor.toLocaleString();
+     document.write( "The factor of every fourth integer from 5 to 25 inclusive is " + factorFormatted + ".");
+</script> 
+      <br>
+          <br>
+<script>   
+     var sum = 0;
+     for ( var number = 5; number <= 25; number += 4 )
+         {
+             sum += number;
+         }
+     document.write( "The sum of every fourth integer from 5 to 25 inclusive is " + sum + ".");
+</script><br>
+          <br>
+          <div id = "draggable">
+          <h3>This emoji is draggable!</h3>
+          <span style='font-size:100px;'>&#129409;</span>
+          </div>
+          <br>
+          
+  <h3>Part 1b</h3>        
+ <script>
+             var z = 3, sumPlusThree = 0;
+
+             while (z <= 18)
+
+             {
+                 sumPlusThree = sumPlusThree + z;
+                 z = 3 + z;
+            }
+             document.write( "The sum of every third integer from 3 to 18 inclusive is " + sumPlusThree + ".");
+</script> 
+          <br>
+          <br>
+           <script>
+             var a = 3, factorPlusThree = 1;
+
+             while (a <= 18)
+
+             {
+                 factorPlusThree = factorPlusThree * a;
+                 a = 3 + a;
+            }
+               var factorPlusThreeFormatted = factorPlusThree.toLocaleString();
+             document.write( "The factor of every third integer from 3 to 18 inclusive is " + factorPlusThreeFormatted +".");
+</script> 
+        </main>
+    <div class="footerlong">
+    <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </div> 
+    <div class="topleft">
+    <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw4.html">HW 4</a></p>
+        <p style="font-size: 12px; color: lightgray;">Part 1</p>
+        <p style="font-size: 12px;"><a href="hw4-part2.html">Part 2</a></p>
+        <p style="font-size: 12px;"><a href="hw4-extracredit.html">Extra Credit</a></p>
+    </nav>
+    </div>
+</body>
+</html>

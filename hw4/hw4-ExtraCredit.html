@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+
+<title>CNIT 133 - Homework 4 - Extra Credit</title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework4">
+<meta name="author" content="Chantilly Apollon">
+<style>
+    label   {
+        font-weight: bold; 
+        color:blueviolet; 
+        font-size: 20px;
+        display: inline-block;
+        }
+    input {
+        text-align: right;
+        background-color: floralwhite;
+        box-sizing: border-box;
+        border: 2px solid blueviolet;
+        border-radius: 4px;
+        }
+
+     .error {
+            color: red;
+            margin-left: 2px;
+            font-weight: bold;
+        }
+    .button {
+        background-color: blueviolet;
+        border: none;
+        color: white;
+        padding: 15px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>
+$(document).ready(function(){
+$("#boxsize").validate({
+// Rules for each input item
+rules:
+{
+boxSize: { required: true, number: true, min: 2, max:10}
+}
+                            
+});
+});   
+
+function drawBox() {
+    if ($("#boxSize").valid()) {
+        var height, length, results;
+        height = parseInt(document.getElementById("boxSize").value);
+        length = parseInt(document.getElementById("boxSize").value);
+        results = ("<pre>");
+        for (var i = 1; i <=height; i +=1) {
+                if (i == 1 || i == height) {
+                    for ( var l = 1; l <= length; l +=1) { 
+                        results = (results + "* ");
+                        }
+                    results = (results + "\n");}
+                else {
+                    results = (results + "* ");
+                    var spaces = (length * 2)-4; 
+                    for (var s = 1; s <= spaces; s +=1) {
+                        results = (results + " ");
+                        } 
+                        results = results + "*\n";
+                    }
+                 }
+                 results = results + "</pre>";
+                 document.getElementById("results").innerHTML = results;
+                }
+            }
+            
+</script>
+</head>
+
+<body>
+<div class="layout">
+    <header class="header">
+        <h1>CNIT 133 - Homework 4 - Extra Credit</h1>
+        </header>
+      <main class="middlebox">
+          <form id="boxsize" name="boxsize">
+            <p><label for="boxSize">What size box would you like to draw?</label></p>
+            <p> <input type="number" id="boxSize" name="boxSize" autofocus></p>
+            <br>
+            <input type="button" class="button" onclick="drawBox()" value="DRAW"> 
+          </form><br><br>
+<div id="results">
+
+</div>
+        </main>
+    <div class="footerlong">
+    <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </div> 
+    <div class="topleft">
+    <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw4.html">HW 4</a></p>
+        <p style="font-size: 12px;"><a href="hw4-part1.html">Part 1</a></p>
+        <p style="font-size: 12px;"><a href="hw4-part2.html">Part 2</a></p>
+        <p style="font-size: 12px; color: lightgray;">Extra Credit</p>
+    </nav>
+    </div>
+</body>
+</html>

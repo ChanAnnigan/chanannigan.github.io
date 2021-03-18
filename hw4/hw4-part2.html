@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+
+<title>CNIT 133 - Homework 4 - Part 2</title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework4">
+<meta name="author" content="Chantilly Apollon">
+<style>
+.column {
+  float: left;
+  width: 28%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+th {
+  background:maroon;
+  color: beige;
+  padding: 3px;
+  text-align: center;
+}
+tr:nth-child(even) {background: orange;
+                    text-align:center;}
+tr:nth-child(odd) {background:yellow;
+                  text-align:center;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#flip").click(function(){
+      $("#panel").slideToggle("slow");
+    });
+  });
+
+</script>
+</head>
+
+<body>
+<div class="layout">
+    <header class="header">
+        <h1>CNIT 133 - Homework 4 - Part 2</h1>
+        </header>
+      <main class="middlebox">
+ <script>
+var principal, rate, years, amount;
+var usdOptions = {style: "currency", currency: "USD"};
+principal= 1000;
+var round = 1;
+document.write("<div class='row'>")
+     for (rate = 0.05; rate <= 0.07; rate += 0.01){
+      document.write("<div class='column'>");
+        document.write("<table id='interestRate'><tr><th>Year</th><th>Amount <br>on deposit</th><th>Interest <br>Rate</th></tr>");
+         for (years = 0; years <= 10; years +=1) {
+             amount = (principal * (1 + rate)**years);
+            var dollarAmount = amount.toLocaleString("en", usdOptions);
+            document.write("<tr><td>" + years + "</td><td>" + dollarAmount + "</td><td>" + rate.toFixed(2) + "</td></tr>")
+
+        }
+        document.write("</table></div>"); 
+     }
+     document.write("</div>"); 
+</script>
+        </main>
+    <div class="footerlong">
+    <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </div> 
+    <div class="topleft">
+    <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw4.html">HW 4</a></p>
+        <p style="font-size: 12px;"><a href="hw4-part1.html">Part 1</a></p>
+        <p style="font-size: 12px; color: lightgray;">Part 2</p>
+        <p style="font-size: 12px;"><a href="hw4-extracredit.html">Extra Credit</a></p>
+    </nav>
+    </div>
+</body>
+</html>
