@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="cnit133.css">
+<title>Homework 2 - Basic Operations - Extra Credit</title>
+
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery">
+<meta name="author" content="Chantilly Apollon">
+
+<style>
+    input   {
+        text-align: right;
+        background-color: floralwhite;
+        box-sizing: border-box;
+        border: 2px solid blueviolet;
+        border-radius: 4px;
+        }
+    table{
+        text-align:right;
+    }
+    
+    th  {
+        text-align: center;
+        font-weight: bold; 
+        color:blueviolet; 
+        font-size: 14px;
+        }
+    #panel, #flip{
+        text-align: center;
+        background-color: lightgray;
+        border: solid 1px darkgrey;
+    }
+    
+    #panel {
+        padding: 40px;
+        display: none;
+    }
+    
+</style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="layout">
+    
+    <header class="header">
+        <h1>Homework 2 - Extra Credit</h1>
+    </header>
+
+    <main class="middlebox">
+        <div id="flip"><h4>Click to show or hide instructions.</h4></div>
+        <div id="panel">Enter the amount of US dollars. Then click Calculate to convert US dollars into other currencies.</div>
+    <br>
+        
+<script>
+    //dsiplay table//
+    document.write("<div align=\"center\">");
+
+    document.write("<form name='myform'>");
+
+    document.write("<table border=\"1\">");
+
+    document.write("<tr><th align=\"center\" colspan=\"3\">Currency Converter</th></tr>");
+
+    document.write("<tr><th>Currency</th><th>Exchange Rate</th><th>Conversion</th></tr>");
+    
+    document.write("<tr><td>Euro</td><td><input type=\"number\" disabled=\"disabled\" id=\"euroRate\" value = 0.89 class=\"r\" /></td><td><input type=\"number\" disabled=\"disabled\" id=\"euro\" class=\"r\" size=\"20\"></td></tr>");
+    
+    document.write("<tr><td>Canadian Dollar</td><td><input type=\"number\" disabled=\"disabled\" id=\"canadarate\" value = 1.31 class=\"r\" /></td><td><input type=\"number\" disabled=\"disabled\" id=\"canada\" class=\"r\" size=\"20\"></td></tr>");
+
+    document.write("<tr><td>Hong Kong Dollar</td><td><input type=\"number\" disabled=\"disabled\" id=\"hongkongrate\" value = 7.80 class=\"r\" /></td><td><input type=\"number\"  disabled=\"disabled\" id=\"hongkong\" class=\"r\" size=\"20\"></td></tr>");
+
+   document.write("<tr><td>Japanese Yen</td><td><input type=\"number\" disabled=\"disabled\" id=\"japanrate\" value = 108.38 class=\"r\" /></td><td><input type=\"number\" disabled=\"disabled\" id=\"japan\" class=\"r\" size=\"20\"></td></tr>");
+    
+    document.write("<tr><td>Mexican Peso</td><td><input type=\"number\" disabled=\"disabled\" id=\"mexicorate\" value = 19.11 class=\"r\" /></td><td><input type=\"number\"  disabled=\"disabled\" id=\"mexico\" class=\"r\" size=\"20\"></td></tr>");
+
+    document.write("<tr><td colspan=\"2\">Enter Amount of US Dollars</td></td><td><input type=\"number\" id=\"usmoney\" class=\"r\" size=\"20\" placeholder=\"Enter $USA here\" autofocus></td></tr>");
+
+document.write("</table><br />");
+
+document.write("<input type=\"button\" value='Calculate' onclick=\"process()\">");
+    
+document.write("<br /><br />");
+    
+document.write("<input type=\"reset\" value=\"Reset\" size=\"10\">");
+
+document.write("</form>");
+
+document.write("</div>");
+
+function process() {
+  //define varaibles//  
+    var usa, euro, canada, hongkong, japan, mexico, errMsg;
+
+    usa = parseFloat(document.getElementById("usmoney").value);
+    errMsg = "Invalid entry. Please try again."
+    
+    //check for invalid entries or blank entry and display alert//
+    if (isNaN(usa)) {
+        
+        window.alert(errMsg);
+    }
+    //calculate currencies and assign to table and form ids//
+    else {
+    euro = 0.89 * usa;
+    canada = 1.31 * usa;
+    hongkong = 7.80 * usa;
+    japan = 108.38 * usa;
+    mexico = 19.11 * usa;
+    
+    document.getElementById("euro").value = euro.toFixed(2);
+    document.getElementById("canada").value = canada.toFixed(2);
+    document.getElementById("hongkong").value = hongkong.toFixed(2);
+    document.getElementById("japan").value = japan.toFixed(2); 
+    document.getElementById("mexico").value = mexico.toFixed(2);
+        }
+}
+    //jQuery function to show or hide a panel//
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+});
+//jQuery function to highlight the focus region of the table - I used autofocus as well//
+ $('#usmoney').focus(function() {
+		$(this).css('background-color', 'pink');
+	});
+</script>
+
+    </main>
+
+    <div class="topleft">
+    <img src="images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+     
+    <nav class="menulong s">
+        <p><a href="index.html">Home</a></p>
+        <p><a href="hw2.html">HW 2</a></p>
+        <p style="font-size: 12px;"><a href="HW2-Part1.html">Part 1</a></p>
+        <p style="font-size: 12px;"><a href="HW2-Part2.html">Part 2a</a></p>
+        <p style="font-size: 12px;"><a href="HW2-Part2b.html">Part 2b</a></p>
+        <p style="font-size: 12px;"><a href="HW2-Part3.html">Part 3</a></p>
+        <p style="font-size: 12px;color: lightgray;">Extra Credit</p>
+    </nav>
+  
+    <footer class="footerlong">
+        <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </footer> 
+    
+    </div>
+</body>

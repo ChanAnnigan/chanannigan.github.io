@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="cnit133.css">
+<title>Homework 2 - Basic Operations - Part 2a</title>
+
+<style>
+    input {text-align: right;
+    background-color: floralwhite;
+        box-sizing: border-box;
+  border: 2px solid blueviolet;
+  border-radius: 4px;
+    }
+    label{font-weight: bold; color:blueviolet; font-size: 14px;}
+textarea {
+  padding: 5px;
+  box-sizing: border-box;
+  border: 2px solid blueviolet;
+  border-radius: 4px;
+  background-color: floralwhite;
+}
+    
+</style>  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    //jQuery function for fading results area//
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#results").fadeTo("slow", 0.5);
+  });
+});
+</script>
+    
+<script>
+function process()
+{
+
+var number1, number2, number3, n1, n2, n3, sum, average, product, smallest, largest, errMsg;
+
+errMsg = "The input is invalid. Please try again."
+    
+number1 = document.getElementById("num1").value;
+number2 = document.getElementById("num2").value;
+number3 = document.getElementById("num3").value;
+
+n1 = parseInt(number1);
+n2 = parseInt(number2);
+n3 = parseInt(number3);
+//check for empty or invalid entries and display message in text area if found//
+if(isNaN(n1) || isNaN(n2) || isNaN(n3) ){
+    document.getElementById("result").value = errMsg;
+}
+//perform calculations if entries are valid//
+else {
+sum = n1 + n2 + n3;
+average = sum / 3;
+product = n1 * n2 * n3;
+smallest = Math.min(n1, n2, n3);
+largest = Math.max(n1, n2, n3);
+
+    //concatenate results and place in textarea//
+    document.getElementById("result").value = ("The sum of the numbers is " + sum + ". \nThe average of the numbers is " + average + ". \n" + "The product of the numbers is " + product + ".\n" + "The smallest number is " + smallest + ".\n" + "The largest number is " + largest + ".");}
+    };
+  
+
+function res() {
+	       /* function clears the result area resets the fade and puts the cursor in the num1 input box */
+           document.getElementById("result").innerHTML = "";
+           document.getElementById("num1").focus();
+            $("#results").fadeTo("slow", 1.0);
+                     }    
+</script>
+    
+    
+</head>
+
+<body>
+  <body>
+<div class="layout">
+
+    <header class="header">
+        <h1>Homework 2 - Part 2a</h1>
+        </header>
+    
+    <main class="middlebox">
+        <h4>Enter three numbers to get the sum, average, product, minimum, and maximum.</h4> <p>This version displays the error message in the results textarea.</p><br>
+    <section>
+<form name="myform">
+<table>
+<tr>
+<td style="text-align: right; padding-right: 5px;"><label for="num1">First Number:</label></td>
+<td><input type="number" id="num1" size="10" autofocus></td>
+</tr>
+<tr>
+<td style="text-align: right; padding-right: 5px;"><label for="num2">Second Number:</label></td>
+<td><input type="number" id="num2" size="10"></td>
+</tr>
+<tr>
+<td style="text-align: right; padding-right: 5px;"><label for="num3">Third Number:</label></td>
+<td><input type="number" id="num3" size="10"></td>
+    </tr>
+    </table>
+     <div id="results" style="background-color:hotpink;">
+     <label for="result" style="text-align: right; padding-right: 5px;">Results of calculations:</label>
+    <textarea rows="6" cols="50" id="result" readonly>
+    </textarea><br>
+<input type="button" onclick="process()" value="SUBMIT">
+<input type="reset" value="RESET" onclick="res();">
+<button type="button">Click to fade results</button>
+</div>
+            </form>
+       
+</section>
+    </main>
+      
+    <div class="topleft">
+    <img src="images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    
+    <nav class="menulong">
+        <p><a href="index.html">Home</a></p>
+        <p><a href="hw2.html">HW 2</a></p>
+        <p style="font-size: 12px;"><a href="HW2-Part1.html">Part 1</a></p>
+        <p style="font-size: 12px; color: lightgray;">Part 2a</p>
+        <p style="font-size: 12px;"><a href="HW2-Part2b.html">Part 2b</a></p>
+        <p style="font-size: 12px;"><a href="HW2-Part3.html">Part 3</a></p>
+        <p style="font-size: 12px;"><a href="HW2-ExtraCredit.html">Extra Credit</a></p>
+    </nav>
+    
+    <footer class="footerlong">
+        <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </footer> 
+    
+    </div> 
+    </body>
