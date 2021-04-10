@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+
+<title>CNIT 133 - Homework 5 - Part 2</title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework4">
+<meta name="author" content="Chantilly Apollon">
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+function goToNewPage(myForm) {
+var mydest = myForm.destList.options[myForm.destList.selectedIndex].value;
+window.open (mydest, "new tab");
+}
+
+function goToNewPageb(myFormb) {
+var mydestb = myFormb.destListb.options[myFormb.destListb.selectedIndex].value;
+window.open (mydestb, "new tab");
+}
+</script>
+</head>
+
+<body>
+<div class="layout">
+    <header class="header">
+        <h1>CNIT 133 - Homework 5 - Part 2</h1>
+        </header>
+      <main class="middlebox">
+          <h3>Navigate to work and school locations:</h3>
+        <form name="myForm" id="myForm">
+            <select name="destList" onchange="goToNewPage(this.form);">
+                <option>Choose website:</option>
+                <option value="https://mysierra.sierracollege.edu//">MySierra</option>
+                <option value="https://sierra.instructure.com/">Sierra College Canvas</option>
+                <option value="https://academics.sierracollege.edu/sites/main/files/file-attachments/academic_calendar_2020-2021.pdf">Sierra College Academic Calendar</option>
+                <option value="https://ccsf.instructure.com/">CCSF Canvas</option>
+                </select>
+            </form>
+            <br>
+            <h3>Choose a Fitness Destination:</h3>
+            <form name="myFormb" id="myFormb">
+                <select name="destListb">
+                    <option>Choose website:</option>
+                    <option value="https://lesmills.secure.force.com/instructorportal/">Les Mills Instructor Portal</option>
+                    <option value="https://watch.lesmillsondemand.com/browse">Les Mills On Demand</option>
+                    <option value="https://www.beachbodyondemand.com/">Beach Body On Demand</option>
+                    <option value="https://www.noom.com/#/">Noom</option>
+                    </select>
+                    <input type="button" value="Go" onclick="goToNewPageb(this.form);">
+                </form>
+        </main>
+    <div class="footerlong">
+    <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </div> 
+    <div class="topleft">
+    <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw5.html">HW 5</a></p>
+        <p style="font-size: 12px;"><a href="hw5-part1.html">Part 1</a></p>
+        <p style="font-size: 12px; color: lightgray;">Part 2</p>
+        <p style="font-size: 12px;"><a href="hw5-part3.html">Part 3</a></p>
+    </nav>
+    </div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+
+<title>CNIT 133 - Homework 5 - Part 1</title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework5">
+<meta name="author" content="Chantilly Apollon">
+<style>
+    table, tr, td {background-color: #f5dcdc;
+            padding: 5px;
+            margin-left: auto;
+            margin-right:auto;}
+
+    .error {
+	font: normal 10px arial;
+	padding: 3px;
+	margin: 3px;
+    background-color: tomato;
+}
+input {
+        text-align: left;
+        background-color: floralwhite;
+        box-sizing: border-box;
+        border: 2px solid blueviolet;
+        border-radius: 4px;
+        }
+
+.button {
+        background-color: blueviolet;
+        border: none;
+        color: white;
+        padding: 15px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+</style>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<!-- <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> -->
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>
+    $(function() {
+
+     $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+    
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+     });
+    
+     $( "#opener" ).click(function() {
+      $( "#dialog" ).dialog( "open" );
+     });
+    });
+    </script>
+    
+<script>
+$(document).ready(function(){
+
+    $("#cityform").validate({
+
+      messages: {
+        city: "Please enter a city",
+        rating: "Please select your favorite weather",
+        season: "Please choose at least one season",
+        sport: "Please choose a favorite sport",
+      },
+
+/* place an error msg after the radio and checkbox elements */
+
+errorPlacement: function(error, element) {
+if ( element.is(":radio") || element.is(":checkbox")) {
+  error.appendTo( element.parent());
+} else {
+  error.insertAfter(element);
+}
+}
+
+});
+});
+</script>
+</head>
+
+<body>
+<div class="layout">
+    <header class="header">
+        <h1>CNIT 133 - Homework 5 - Part 1</h1>
+        </header>
+      <main class="middlebox">
+          <h2>Validate form Elements</h2><br>
+          <button type="button" class="button" id="opener">Click for instructions</button>
+
+          <div id="dialog" title="Instructions">
+          <p>Enter the information about your favorite city, weather, season, and sport. All information must be entered to validate the form.</p>
+          </div><br><br><br>
+<table>
+    <tr>
+        <td>
+<form action="formOK.html" method="post" id="cityform" name="cityform">
+    <table>
+<tr>
+    <td>City:</td>
+    <td><input type="text" name="city" id="city" size="30" class="required" autofocus></td>
+</tr>
+<tr>
+    <td>Favorite weather:</td>
+    <td><input type="radio" id="rating1" name="rating" class="required" value="hot">Hot&nbsp;&nbsp;
+        <input type="radio" id="rating2" class="required" value="warm" name="rating">Warm&nbsp;&nbsp;
+        <input type="radio" id="rating3" class="required" value="cold" name="rating" >Cold&nbsp;&nbsp;
+        <input type="radio" id="rating4" class="required" value="freezing" name="rating">Freezing&nbsp;&nbsp;
+    </td>
+</tr>
+<tr>
+    <td>Favorite season:</td>
+    <td><input type="checkbox" id="season1" name="season" value = "Spring" class="required">Spring&nbsp;&nbsp;
+        <input type="checkbox" id="season2" name="season" value = "Summer" class="required">Summer&nbsp;&nbsp;
+        <input type="checkbox" id="season3" name="season" value = "Winter" class="required">Winter&nbsp;&nbsp;
+        <input type="checkbox" id="season4" name="season" value = "Fall" class="required">Fall
+    </td>
+</tr>
+<tr>
+    <td><label for="sport" class="label">Favorite Sport:</label></td>
+    <td>
+        <select name="sport" id="sport" class="required">
+            <option value="">-Choose one-</option>
+            <option value="biking">Biking</option>
+            <option value="swimming">Swimming</option>
+            <option value="skiing">Skiing</option>
+            <option value="running">Running</option>
+            <option value="other">Other</option>
+        </select>
+    </td>
+</tr>
+<tr>
+    <td><input type="submit" class="button" id="submit_button" value="SUBMIT"></td>
+    <td><input type="reset" class="button" value="RESET" onlcick="window.location.reload();"></td>
+</tr>
+    </table>
+</form>
+</td>
+</tr>
+</table>
+
+        </main>
+    <div class="footerlong">
+    <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </div> 
+    <div class="topleft">
+    <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw5.html">HW 5</a></p>
+        <p style="font-size: 12px; color: lightgray;">Part 1</p>
+        <p style="font-size: 12px;"><a href="hw5-part2.html">Part 2</a></p>
+        <p style="font-size: 12px;"><a href="hw5-part3.html">Part 3</a></p>
+    </nav>
+    </div>
+</body>
+</html>

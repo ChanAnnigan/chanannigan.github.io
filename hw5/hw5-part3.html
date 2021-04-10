@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<title>CNIT 133 - Homework 5 - Part 3</title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework4">
+<meta name="author" content="Chantilly Apollon">
+<style>
+    .button {
+        background-color: lightgrey;
+        border: none;
+        color: black;
+        padding: 15px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+    .results{
+        font-family: 'Inder', sans-serif; 
+        line-height: 28px; 
+        margin-bottom: 15px; 
+        color: #666; 
+        margin-left: 10px;
+    }
+    input {
+        text-align: right;
+        background-color: floralwhite;
+        box-sizing: border-box;
+        border: 2px solid blueviolet;
+        border-radius: 4px;
+        }
+        .error {
+	font: normal 14px asans-serif;
+	padding: 3px;
+	margin: 3px;
+    background-color: tomato;}
+</style>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>
+$(function() {
+     $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+    
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+     });
+    
+     $( "#opener" ).click(function() {
+      $( "#dialog" ).dialog( "open" );
+     });
+    });
+    </script>
+<script>
+$(document).ready(function(){
+$("#SearchForm").validate({
+// Rules for each input item
+rules:
+{
+inputStateInfo: { required: true}
+},
+messages: {
+			inputStateInfo: "Please enter a state name or abbreviation."
+}
+                            
+});
+});   
+var stateArray = [ ["AL", "ALAMABA", "Alabama", "Montgomery", "4,903,185"],                     
+                ["AK", "ALASKA", "Alaska", "Juneau", "731,545"],  
+                ["AZ", "ARIZONA", "Arizona", "Phoenix", "7,278,717"],
+                ["AR", "ARKANSAS", "Arkansas", "Little Rock", "3,017,825"], 
+                ["CA", "CALIFORNIA", "California", "Sacramento", "39,512,223"],
+                ["CO", "COLORADO", "Colorado", "Denver", "5,758,736"] ];  
+
+function ButtonPressed(){
+    if ($("#SearchForm").valid()){
+    var searchKey = document.forms["SearchForm"].elements["inputStateInfo"].value;
+    searchKey = searchKey.toUpperCase();
+    var searchNumber = parseFloat(searchKey);
+
+    var found=false;
+    for (var row = 0; row < stateArray.length; row++)
+        {
+            if ((stateArray[row][0]== searchKey) || (stateArray[row][1] == searchKey ))
+        {
+            var results = '<strong>Thanks for your inquiry, here is the information you requested:</strong><br>'+ 
+                'State abbr = ' + stateArray[row][0] + '<br>State Name = ' + stateArray[row][2] + 
+                '<br>Capital = ' + stateArray[row][3] + '<br>Population = ' + stateArray[row][4];
+
+            document.getElementById("result").innerHTML = results;
+            row = stateArray.length;
+            found=true;
+        }
+        }
+    if ( found==false) {
+        document.getElementById("result").innerHTML = ("The database does not have information about this state. We only have information about AL, AK, AZ, AR, CA, and CO.");
+    }
+
+}
+}
+</script>
+</head>
+
+<body>
+<div class="layout">
+    <header class="header">
+        <h1>CNIT 133 - Homework 5 - Part 3</h1>
+        </header>
+      <main class="middlebox">
+ <h3>State Census Data</h3>
+ <button id="opener" class="button">Click for instructions</button>
+<div id="dialog" title="Instructions">
+<p>Enter a state to get census information.</p>
+</div>
+<br><br>
+<form name="SearchForm" id="SearchForm">
+<input type="text" size="30" name="inputStateInfo" id="inputStateInfo" pattern="[A-Za-z]" autofocus><br><br>
+<input onclick="ButtonPressed();" type="button" value="State Info" name="search" id="search"><br><br>
+<div name="result" id="result" class="results"></div>
+
+</form>
+
+</main>
+    <div class="footerlong">
+    <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </div> 
+    <div class="topleft">
+    <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw5.html">HW 5</a></p>
+        <p style="font-size: 12px;"><a href="hw5-part1.html">Part 1</a></p>
+        <p style="font-size: 12px;"><a href="hw5-part2.html">Part 2</a></p>
+        <p style="font-size: 12px; color: lightgray;">Part 3</p>
+    </nav>
+    </div>
+</body>
+</html>
