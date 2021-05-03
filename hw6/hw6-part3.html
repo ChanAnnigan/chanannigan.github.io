@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+
+<title>CNIT 133 - Homework 6 - Part 3</title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework6">
+<meta name="author" content="Chantilly Apollon">
+<style>
+      table, tr, td {background-color: #f5dcdc;
+            padding: 5px;
+            margin-left: auto;
+            margin-right:auto;
+            text-align: left;}
+    .error {
+	font: normal 12px arial;
+	padding: 3px;
+	margin: 3px;
+    background-color: yellow;}
+
+    input {
+        text-align: left;
+        background-color: floralwhite;
+        box-sizing: border-box;
+        border: 2px solid blueviolet;
+        border-radius: 4px;
+        }
+
+        .button {
+        background-color: blueviolet;
+        border: none;
+        color: white;
+        padding: 15px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+</style>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://rawgit.com/digitalBush/jquery.maskedinput/1.4.1/dist/jquery.maskedinput.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    jQuery(function($){
+        $("#phone").mask("(999)999-9999");
+        });
+    });
+
+function separatePhone () {
+    if ($("#telephone").valid()){
+        var phone = $('#phone').val();
+        var startSeparation = phone.split('-');
+        var firstPart = startSeparation[0];
+        var lastPart = startSeparation[1];
+        var areaCode = firstPart.substring(1, 4);
+        var firstThree = firstPart.substring(5 ,9 );
+
+        document.getElementById("areaCode").value = areaCode;
+        document.getElementById("firstThree").value = firstThree;
+        document.getElementById("lastFour").value = lastPart;
+    }
+}
+</script>
+</head>
+
+<body>
+<div class="layout">
+    <header class="header">
+        <h1>CNIT 133 - Homework 6 - Part 3</h1>
+        </header>
+      <main class="middlebox">
+          <form id="telephone" name="telephone">
+              <table>
+             <tr><td><label for="phone">Enter a phone number in the format (999)999-9999: </label></td>
+              <td><input name="phone" id="phone" type="text" data-mask="(000)000-0000" required></td>
+            </tr>
+            <tr><td> </td><td>
+                <input type="button" class="button" onClick="separatePhone()" value="Separate">
+                <input type="reset" class="button" value="RESET" onclick="window.location.reload();">  </td>
+                </tr>
+            <tr>
+              <td><label for="areaCode">The area code is: </label>
+              <input name="areaCode" id="areaCode" type="text" readonly></td><td></td>
+            </tr>
+            <tr>
+            <td><label for="firstThree">The first three digits are: </label>
+              <input name="firstThree" id="firstThree" type="text" readonly></td><td></td>
+              <tr>
+                <td><label for="lastFour">The last four digits are: </label>
+                <input name="lastFour" id="lastFour" type="text" readonly></td><td></td>
+            </tr>
+           
+        </table>
+          </form>
+
+        </main>
+    <div class="footerlong">
+    <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </div> 
+    <div class="topleft">
+    <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw6.html">HW 6</a></p>
+        <p style="font-size: 12px;"><a href="hw6-part1.html">Part 1</a></p>
+        <p style="font-size: 12px;"><a href="hw6-part2.html">Part 2</a></p>
+        <p style="font-size: 12px; color: lightgray;">Part 3</a></p>
+    </nav>
+    </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+
+<title>CNIT 133 - Homework 6 - Part 1</title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework6">
+<meta name="author" content="Chantilly Apollon">
+<style>
+       table, tr, td {background-color: #f5dcdc;
+            padding: 5px;
+            margin-left: auto;
+            margin-right:auto;}
+
+    .error {
+	font: normal 10px arial;
+	padding: 3px;
+	margin: 3px;
+    background-color: tomato;}
+
+    input {
+        text-align: left;
+        background-color: floralwhite;
+        box-sizing: border-box;
+        border: 2px solid blueviolet;
+        border-radius: 4px;
+        }
+
+.button {
+        background-color: blueviolet;
+        border: none;
+        color: white;
+        padding: 15px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+</style>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>
+$(document).ready(function(){
+$("#getNumber").validate({
+// Rules for each input item
+rules:
+{
+"fourDecimals": {required: true, number: true}
+},
+messages: {fourDecimals: "Enter a number with four decimal places."}                         
+});
+});
+</script>
+<script>
+function analyzeNumber()
+{
+if ($("#getNumber").valid())
+{
+
+    var number, whole, sqrt, tenths, hundredths, thousandths, results;
+    number = document.getElementById("fourDecimals").value;
+    var is_dot = number.indexOf(".");
+
+    if (is_dot !== -1)
+    {
+        var mySplitNumber = number.split(".");
+        var decimalDigits = mySplitNumber[1];
+        number = parseFloat(number);
+        var howManyDecimals = decimalDigits.length;
+    }
+
+    else
+        {
+            document.getElementById("results").value = "Error. Please enter a number with at least 4 decimal positions.";
+        }
+    
+    if (howManyDecimals < 4)
+        {
+            document.getElementById("results").value = "Error. Please enter a number with at least 4 decimal positions.";
+        }
+    else { 
+            whole = Math.round(number);
+            sqrt = Math.sqrt(number);
+            sqrt = Math.round(sqrt);
+            tenths = Math.floor(number * 10 + 0.5) / 10;
+            tenths = tenths.toFixed(1);
+            hundredths = Math.floor(number * 100 + 0.5) / 100;
+            hundredths = hundredths.toFixed(2);
+            thousandths = Math.floor(number * 1000 + 0.5)/1000;
+            thousandths = thousandths.toFixed(3);
+
+            results = "You entered the number " + number + ". \n";
+            results = results + number + " rounded to nearest integer is " + whole + ". \n";
+            results = results + "The square root of " + number + " (rounded to the nearest integer) is " + sqrt + ". \n";
+            results = results + number + " rounded to the nearest tenths place is " + tenths + ". \n";
+            results = results + number + " rounded to the nearest hundredths place is " + hundredths + ". \n";
+            results = results + number + " rounded to the nearest thousandths place is " + thousandths + ". \n";
+            document.getElementById("results").value = results;
+        }
+        }}
+</script>
+</head>
+
+<body>
+<div class="layout">
+    <header class="header">
+        <h1>CNIT 133 - Homework 6 - Part 1</h1>
+        </header>
+      <main class="middlebox">
+          <form name="getNumber" id="getNumber">
+            <p><label for="fourDecimals">Enter a number with 4 decimals places:</label>
+            <input type="number" id="fourDecimals" name="fourDecimals" size="10"></p><br>
+            <input type="button" class="button" onClick="analyzeNumber()" value="Analyze">
+            <input type="reset"  class="button" value="RESET" onclick="window.location.reload();">   <br>   <br>  
+            <label for="results" style="text-align: right; padding-right: 5px;">Results of calculations:</label>
+   <br> <textarea rows="6" cols="60" id="results" readonly></textarea>
+          </form>
+
+        </main>
+    <div class="footerlong">
+    <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </div> 
+    <div class="topleft">
+    <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw6.html">HW 6</a></p>
+        <p style="font-size: 12px; color: lightgray;">Part 1</p>
+        <p style="font-size: 12px;"><a href="hw6-part2.html">Part 2</a></p>
+        <p style="font-size: 12px;"><a href="hw6-part3.html">Part 3</a></p>
+    </nav>
+    </div>
+</body>
+</html>

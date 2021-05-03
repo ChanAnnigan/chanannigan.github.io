@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+
+<title>CNIT 133 - Homework 6 - Part 2</title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework5">
+<meta name="author" content="Chantilly Apollon">
+<style>
+    .error {
+	font: normal 12px arial;
+	padding: 3px;
+	margin: 3px;
+    background-color: yellow;}
+
+    input {
+        text-align: left;
+        background-color: floralwhite;
+        box-sizing: border-box;
+        border: 2px solid blueviolet;
+        border-radius: 4px;
+        }
+
+.button {
+        background-color: blueviolet;
+        border: none;
+        color: white;
+        padding: 15px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+
+</style>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>
+
+$(document).ready(function(){
+$("#writeText").validate({
+// Rules for each input item
+rules:
+{
+"input": {required: true},
+"letter": {required: true}
+},
+messages: {input: "Please type text to search.", letter: "Enter a letter to search for."}                         
+});
+});
+</script>
+<script>
+function search(){
+if ($("#writeText").valid())
+    {
+       var count=0;
+       
+        var key=document.getElementById("letter").value;
+        var key=key.toLowerCase();
+
+       var stringToSearch=document.getElementById("input").value;
+       var stringToSearch=stringToSearch.toLowerCase(); 
+
+                   
+        for (i=0; i < stringToSearch.length; i++)
+                {
+
+               if (stringToSearch.charAt(i) == key)
+                        count++;     
+                }         
+ 
+       if ( count == 0 ){
+        document.getElementById("output").value="";
+        var myText = "<html>\n";
+        myText += "<head>\n";
+        myText += "<title>Letter Not Found</title>\n";
+        myText += "</head>\n";
+        myText += "<body>\n";
+        myText += "<div style='margin:0 auto;'>\n";
+        myText += "<p><strong>The letter you entered is not found in the text.</strong></p>\n";
+        myText += "<input type='button' value='Close Window' onclick='window.close()'>\n";
+        myText += "</div>\n";
+        myText += "</body>\n";
+        myText += "</html>";
+        var newWindow = window.open("", "new_window", "top=1, left=1, width=300, height=100");
+        newWindow.focus();
+        newWindow.document.write(myText);
+       }
+       else {
+          document.getElementById("output").value=count + 
+             " occurrence(s) of " + key + " found";}
+    }
+}
+</script>
+</head>
+
+<body>
+<div class="layout">
+    <header class="header">
+        <h1>CNIT 133 - Homework 6 - Part 2</h1>
+        </header>
+      <main class="middlebox">
+         <form id="writeText" name="writeText">
+            <label for="textinput"> <h2>Enter some text and a letter to search for within that text:</h2></label>
+            <textarea cols="50" rows="10" name="input" id="input"></textarea><br><br>
+            <label for="letter">What letter are you searching for? </label><input type=text id="letter" name="letter" size="5" required><br>
+            <br><input type="button" value="Search" class="button" onClick="search();">
+            <input type="reset" value="Reset" class="button" onClick="location.reload();"><br><br>
+            <label for="outpout"><h2>Here's what we found:</h2></label>
+            <textarea cols="50" rows="2" name="output" id="output" readonly></textarea>
+         </form> 
+
+        </main>
+    <div class="footerlong">
+    <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </div> 
+    <div class="topleft">
+    <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw6.html">HW 6</a></p>
+        <p style="font-size: 12px;"><a href="hw6-part1.html">Part 1</a></p>
+        <p style="font-size: 12px; color: lightgray;">Part 2</p>
+        <p style="font-size: 12px;"><a href="hw6-part3.html">Part 3</a></p>
+    </nav>
+    </div>
+</body>
+</html>
