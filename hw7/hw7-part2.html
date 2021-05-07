@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+
+<title>CNIT 133 - Homework 7 - Part 2</title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework7">
+<meta name="author" content="Chantilly Apollon">
+<style>
+#navigation ul, #navigation li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#navigation a {
+	background-color: rgb(204,204,204);
+	text-decoration: none;
+	font: 16px 'ColaborateLightRegular', Arial, sans-serif;
+	text-indent: 25px;
+	border-top: 1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+	margin: 0px;
+	padding: 0px;
+	color: rgb(53,75,118);
+}
+
+#navigation a:hover {
+	border-top:1px solid #999;
+	border-left:1px solid #999;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	background-color: #555;
+	color: white;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="miscex3.js"></script>
+
+<script>
+$(document).ready(function() {
+ $("#navigation").navPlugin({
+   'itemWidth': 180,
+   'itemHeight': 30,
+   'navEffect': "slide",
+   'speed': 250
+ });
+}); // end ready
+
+</script>
+</head>
+
+<body>
+<div class="layout">
+    <header class="header">
+        <h1>CNIT 133 - Homework 7 - Part 2</h1>
+        </header>
+      <main class="middlebox">
+        <ul id="navigation">
+            <li><a href="../index.html">Home</a></li>
+             <li><a href="../hw2.html">Homework 2</a>
+               <ul>
+                 <li><a href="../HW2-Part1.html">Part 1</a></li>
+                 <li><a href="../HW2-Part2.html">Part 2</a></li>
+                 <li><a href="http://www.ccsf.edu/en/student-services/learning-resources.html">Learning Resources</a></li>
+               </ul>
+             </li>
+     
+             <li><a href="http://www.download.com">Resources</a>
+               <ul>
+                 <li><a href="http://www.exforsys.com/tutorials/css3/css3-introduction.html">CSS3 Tutorial</a></li>
+                 <li><a href="http://www.w3schools.com/xhtml/default.asp">XHTML Tutorial</a></li>
+                 <li><a href="http://www.w3schools.com/html5/default.asp">HTML 5 Tutorial</a></li>
+               </ul>
+             </li>
+             
+             <li><a href="http://www.devguru.com/Technologies/ecmascript/quickref/javascript_index.html">JavaScript</a>
+               <ul>
+                 <li><a href="http://wsabstract.com/javaindex.shtml">Wsabstract tutorials</a></li>
+                 <li><a href="http://www.w3schools.com/ajax/default.asp">Ajax Tutorial</a></li>
+                 <li><a href="http://www.w3schools.com/jquery/default.asp">jQuery Tutorial</a></li>
+               </ul>
+             </li>
+         </ul>
+
+        </main>
+    <div class="footerlong">
+    <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </div> 
+    <div class="topleft">
+    <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw7.html">HW 7</a></p>
+        <p style="font-size: 12px;"><a href="hw7-part1.html">Part 1</a></p>
+        <p style="font-size: 12px; color: lightgray;">Part 2</p>
+        
+        
+    </nav>
+    </div>
+</body>
+</html>

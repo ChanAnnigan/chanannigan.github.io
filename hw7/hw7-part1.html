@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="../cnit133.css">
+
+<title>CNIT 133 - Homework 7 - Part 1</title>
+<meta charset="UTF-8">
+<meta name="description" content="coursework for CNIT 133 at CCSF">
+<meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework7">
+<meta name="author" content="Chantilly Apollon">
+<style>
+   .background1 {
+       background-color: red;
+   }
+
+   .background2 {
+       background-color: orange;
+   }
+
+   .background3 {
+       background-color: yellow;
+   }
+
+   .background4 {
+       background-color:green;
+   }
+
+   .background5 {
+       background-color:blue;
+   }
+
+   .background6 {
+       background-color:purple;
+   }
+   #sampleText {
+            margin: 10px 30px;
+            padding: 0 10px;
+            border: 3px ridge gray;
+        }
+</style>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script>
+    // Define a document ready handler
+    $(function () {
+        // Attach a click event handler to all the radio buttons in the attribute selection table
+        $("#attributeTable :radio").click(function () {
+            // The "this" variable refers to the radio button that was clicked.
+            // The HTML code defines the name attribute of the radio button as the name of the CSS property
+            // we want to set; the value of the radio button is the value we want to set the CSS property to.
+            // By doing this, the CSS of the sample text can be set easily with the following line of code:
+            $("#sampleText").css($(this).attr("name"), $(this).val());
+        });
+
+        // Attach a click event handler to the font size selection box
+        $("#fontSize").change(function () {
+            $("#sampleText").css($(this).attr("name"), $(this).val());
+        });
+
+        // Attach a click event handler to the checkboxes in the attribute selection table
+        $("#attributeTable :checkbox").change(function () {
+            $("#sampleText").css($(this).attr("name"), this.checked ? $(this).val() : "");
+        });
+
+        // Attach a click event handler to the radio buttons in the theme selection table
+        $("#themeTable :radio").click(function () {
+            // Clear specific CSS attributes that may have been set with the radio buttons in the attribute table
+            // by selecting all the one that have the checked attribute, and firing the click event
+            $("#attributeTable [checked]").click();
+
+            // Reset the select box by setting the value to ""
+            $("#fontSize").val("");
+
+            // Remove any class already set, and set the class to the one selected.
+            $("#sampleText").removeClass().addClass($(this).val());
+        });
+
+        // Attach a click event handler to the Reset All button
+        $("#resetAll").click(function () {
+            $("#themeTable [checked]").click(); // Clicks theme table elements that have a checked attribute
+            $("#attributeTable [checked]").click(); // Clicks attribute table elements that have a checked attribute
+            $("#fontSize").val(""); // Selects the font-size that has a value of ""
+            $("#attributeTable :checked").click(); // Clicks all the checkboxes that are checked (to uncheck them)
+        });
+    });
+</script>
+</head>
+
+<body>
+<div class="layout">
+    <header class="header">
+        <h1>CNIT 133 - Homework 7 - Part 1</h1>
+        </header>
+      <main class="middlebox">
+        <form id="backgroundForm">
+            <h3>CSS Selector</h3>
+            <table id="themeTable" border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <th>Background</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label><input type="radio" name="theme" value="" id="None" checked>White</label><br>
+                        <label><input type="radio" name="theme" value="background1" id="background1">Red</label><br>
+                        <label><input type="radio" name="theme" value="background2" id="background2">Orange</label><br>
+                        <label><input type="radio" name="theme" value="background3" id="background3">Yellow</label><br>
+                        <label><input type="radio" name="theme" value="background4" id="background4">Green</label><br>
+                        <label><input type="radio" name="theme" value="background5" id="background5">Blue</label><br>
+                        <label><input type="radio" name="theme" value="background6" id="background6">Purple</label><br>
+                    </td>
+                </tr>
+            </table>
+            <button type="button" id="resetAll">Reset All</button>
+        </form>
+        <br style="clear: both">
+        <div id="sampleText">
+            <h2>“Still I Rise” by Maya Angelou</h2>
+<p>You may write me down in history</p>
+<p>With your bitter, twisted lies,</p>
+<p>You may tread me in the very dirt</p>
+<p>But still, like dust, I’ll rise.</p>
+<p>Does my sassiness upset you?</p>
+Why are you beset with gloom?
+’Cause I walk like I’ve got oil wells
+Pumping in my living room.
+Just like moons and like suns,
+With the certainty of tides,
+Just like hopes springing high,
+Still I’ll rise.
+Did you want to see me broken?
+Bowed head and lowered eyes?
+Shoulders falling down like teardrops.
+Weakened by my soulful cries.
+Does my haughtiness offend you?
+Don’t you take it awful hard
+’Cause I laugh like I’ve got gold mines
+Diggin’ in my own back yard.
+You may shoot me with your words,
+You may cut me with your eyes,
+You may kill me with your hatefulness,
+But still, like air, I’ll rise.
+Does my sexiness upset you?
+Does it come as a surprise
+That I dance like I’ve got diamonds
+At the meeting of my thighs?
+Out of the huts of history’s shame
+I rise
+Up from a past that’s rooted in pain
+I rise
+I’m a black ocean, leaping and wide,
+Welling and swelling I bear in the tide.
+Leaving behind nights of terror and fear
+I rise
+Into a daybreak that’s wondrously clear
+I rise
+Bringing the gifts that my ancestors gave,
+I am the dream and the hope of the slave.
+I rise
+I rise
+I rise.</p>
+</div>
+        </main>
+    <div class="footerlong">
+    <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
+    </div> 
+    <div class="topleft">
+    <img src="../images/treebw_220X150.jpg" alt="black and white image of a tree">
+    </div>
+    <nav class="menulong">
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../hw7.html">HW 7</a></p>
+        <p style="font-size: 12px; color: lightgray;">Part 1</p>
+        <p style="font-size: 12px;"><a href="hw7-part2.html">Part 2</a></p>
+        
+    </nav>
+    </div>
+</body>
+</html>

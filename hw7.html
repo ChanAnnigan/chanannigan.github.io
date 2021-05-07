@@ -3,38 +3,77 @@
 <head>
 
 <link rel="stylesheet" href="cnit133.css">
-
+<style>
+    h2 {
+        background: url(hw7/open.png) no-repeat 0 11px;
+        padding: 10px 0 0 25px;
+        cursor: pointer;
+    }
+    h2.close {
+        background-image: url(hw7/close.png);
+    }
+    .details {
+        margin-left: 25px;	
+    }
+    </style>
 <title>CNIT 133 - Homework 7</title>
 <meta charset="UTF-8">
 <meta name="description" content="coursework for CNIT 133 at CCSF">
 <meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework7">
 <meta name="author" content="Chantilly Apollon">
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+ $('.details').hide();
+ $('.middlebox h2').toggle(
+		function() {
+	       $(this).next('.details').slideDown();
+		   $(this).addClass('close');
+		},
+		function() {
+		   $(this).next('.details').fadeOut();
+		   $(this).removeClass('close');
+	  }
+	); // end toggle
+}); // end ready
+</script>
+
 </head>
+
 
 <body>
 <div class="layout">
-    <div class="header">
-        <h1>CNIT 133 - Homework 7</h1>
-        </div>
+    <header class="header">
+        <h1>CNIT 133 - Homework 7 - Object Model and Event Model</h1>
+        </header>
       <div class="middlebox">
-        <h3>Coming Soon!</h3>
+        <h2>Part 1</h2>
+              <div class="details">
+                <p>Select a page layout and formatting. <a href="hw7/hw7-part1.html">Go!</a></p>
+              </div>
+              <h2>Part 2</h2>
+              <div class="details">
+                <p>Top navigation bar example <a href="hw7/hw7-part2.html">Go!</a></p>
+              </div>
         </div>
-    <div class="footer">
+    <footer class="footerlong">
     <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
-    </div> 
+    </footer> 
     <div class="topleft">
     <img src="images/treebw_220X150.jpg" alt="black and white image of a tree">
     </div>
-    <div class="menu">
+    <nav class="menulong">
         <p><a href="index.html">Home</a></p>
         <p><a href="hw2.html">HW 2</a></p>
         <p><a href="hw3.html">HW 3</a></p>
         <p><a href="hw4.html">HW 4</a></p>
         <p><a href="hw5.html">HW 5</a></p>
         <p><a href="hw6.html">HW 6</a></p>
-        <p><a href="hw7.html">HW 7</a></p>
+        <p style="color: lightgray;">HW 7</p>
         <p><a href="hw8.html">HW 8</a></p>
-    </div>
+    </nav>
     </div>
 </body>
 </html>
