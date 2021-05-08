@@ -3,23 +3,23 @@
         "Title": "BIOL 1A",
         "Location": "Room 100",
         "Time": "1:00PM"
-    }
+    },
     {
         "Title": "BIOL 1B",
         "Location": "Room 110",
         "Time": "2:00PM"
-    }
+    },
 
     {
         "Title": "BIOL 15",
         "Location": "Room 100",
         "Time": "3:00PM"
-    }
+    },
     {
         "Title": "BIOL 30",
         "Location": "Room 115",
         "Time": "4:00PM"
-    }
+    },
     {
         "Title": "BIOL 50",
         "Location": "Room 110",
