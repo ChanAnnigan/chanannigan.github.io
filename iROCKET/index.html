@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="iROCKET.css">
+
+<title>iROCKET Launch Pad</title>
+<meta charset="UTF-8">
+<meta name="description" content="iROCKET Launch Pad for UCSF Bridges Curriculum">
+<meta name="keywords" content="UCSF, Bridges Curriculum, Foundations 1, Foundations 2, Career Launch, Student Resources">
+<meta name="author" content="Technology Enhanced Education">
+<style>
+    .button {
+        background-color: orange;
+        border: none;
+        color: white;
+        padding: 15px 15px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+</style>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<!-- <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> -->
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>
+    $(function() {
+
+     $( "#Foundations1" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+    
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+     });
+    
+     $( "#opener" ).click(function() {
+      $( "#Foundations1" ).dialog( "open" );
+     });
+    });
+    </script>
+
+<script>
+    $(function() {
+
+     $( "#Foundations2" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+    
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+     });
+    
+     $( "#opener2" ).click(function() {
+      $( "#Foundations2" ).dialog( "open" );
+     });
+    });
+    </script>
+
+<script>
+    $(function() {
+
+     $( "#CareerLaunch" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+    
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+     });
+    
+     $( "#opener3" ).click(function() {
+      $( "#CareerLaunch" ).dialog( "open" );
+     });
+    });
+    </script>
+
+<script>
+    $(function() {
+
+     $( "#StudentResources" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+    
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+     });
+    
+     $( "#opener4" ).click(function() {
+      $( "#StudentResources" ).dialog( "open" );
+     });
+    });
+    </script>
+
+</head>
+<body>
+    <div class="header">
+        <h1>iROCKET Launch Pad</h1> 
+    </div>
+<div class="gridrow2column2">
+    <button type="button" class="button" id="opener">Foundations 1</button>
+    <div id="Foundations1" title="Foundations 1">
+        <p>Foundations 1</p>
+        <ul>
+        <li><a href="">IDS 121A</a></li>
+        </ul>
+    </div>
+</div>
+    <div class="gridrow2column3">
+        <button type="button" class="button" id="opener2">Foundations 2</button>
+        
+        <div id="Foundations2" title="Foundations 2">
+            <p>Foundations 2</p>
+            <ul>
+            <li><a href="">Preparation Resources</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="gridrow2column4">
+        <button type="button" class="button" id="opener3">Career Launch</button>
+        
+        <div id="CareerLaunch" title="Career Launch">
+            <p>Career Launch</p>
+            <ul>
+            <li><a href="">Putt stuff here</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="gridrow3">
+        <button type="button" class="button" id="opener4">Student Resources</button>
+        <div id="StudentResources" title="Student Resources">
+            <p>Student Resources</p>
+            <ul>
+            <li><a href="">Putt stuff here</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    
+
+<footer class="footerlong">
+    <h1 style="text-align: left;">Need Help? Can't find your course?<br>Contact the iROCKET Help Desk:<a href="mailto:irocket@ucsf.edu">&#9758; irocket@ucsf.edu</a></h1>
+    </footer>    
+    </div>
+</body>
+</html>

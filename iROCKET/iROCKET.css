@@ -1,0 +1,84 @@
+* { margin: 0; padding: 0; }
+
+body{
+    background-color: black;
+    font-family: 'Quicksand', sans-serif;
+    padding:0;
+    margin:0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+.layout {
+    display: grid;
+    grid-template-columns:100px 100px 100px 100px 100px 100px 100px 100px auto;
+    grid-template-rows: 100px 100px 100px 100px 100px 50px 50px auto;
+}
+
+h3 {font-size: 20px;}
+
+.header {grid-row-start: 1; grid-row-end: 2; grid-column-start: 2; grid-column-end: 8; text-align: left; padding: 50px; background-color:darkgrey; border: 2px solid white;}
+
+.middlebox {grid-row-start: 2; grid-row-end: 6; grid-column-start: 2; grid-column-end: 8; text-align: left; padding: 50px; background-color:white; border-left: 2px solid white; border-right: 2px solid darkgrey;}
+
+.gridrow2column2 {grid-row-start: 2; grid-row-end: 3; grid-column-start: 2; grid-column-end: 3; text-align: left; padding: 50px; background-color:white; border-left: 2px solid white; border-right: 2px solid darkgrey;}
+
+.gridrow2column3 {
+    grid-row-start: 2; 
+    grid-row-end: 3; 
+    grid-column-start: 3; 
+    grid-column-end: 4; 
+    text-align: left; 
+    padding: 50px; 
+    background-color:white; 
+    border-left: 2px solid white; 
+    border-right: 2px solid darkgrey;}
+
+    .gridrow2column4 {
+        grid-row-start: 2; 
+        grid-row-end: 3; 
+        grid-column-start: 4; 
+        grid-column-end: 5; 
+        text-align: left; 
+        padding: 50px; 
+        background-color:white; 
+        border-left: 2px solid white; 
+        border-right: 2px solid darkgrey;}
+
+    .gridrow3 {
+        grid-row-start: 3; 
+        grid-row-end: 4; 
+        grid-column-start: 2; 
+        grid-column-end: 8; 
+        text-align: left; 
+        padding: 50px; 
+        background-color:white; 
+        border-left: 2px solid white; 
+        border-right: 2px solid darkgrey;}
+
+.footerlong {grid-row-start: 6; grid-row-end: 7; grid-column-start: 2; grid-column-end: 6; text-align: right; padding: 15px; background-color:darkgrey;border: 2px solid white; font-size: 15px;}
+
+.layout a:link, a:visited {
+    color: black;
+    text-decoration: none;}
+
+.footer a:link, a:visited {
+    color: black;
+    padding-left: 40px;
+    text-decoration: none;}
+
+.footerlong a:link, a:visited {
+    color: black;
+    padding-left: 40px;
+    text-decoration: none;}
+
+.layout a:hover {
+    color: darkslategray;
+    text-decoration: underline;
+}  
+
+.menu {grid-row-start: 2; grid-row-end: 5; grid-column-start: 1; grid-column-end: 2; text-align: right; padding-right: 20px; padding-top: 20px; background-color:darkgrey; font-size: 20px; line-height: 2; font-weight: bold;}
+
+.menulong {grid-row-start: 2; grid-row-end: 7; grid-column-start: 1; grid-column-end: 2; text-align: right; padding-right: 20px; padding-top: 20px; background-color:darkgrey; font-size: 20px; line-height: 2; font-weight: bold;}
+
+.topleft {grid-row-start: 1; grid-row-end: 2; grid-column-start: 1; grid-column-end: 2;border: 2px solid black;}
