@@ -12,7 +12,7 @@ body{
 .layout {
     display: grid;
     grid-template-columns:100px 220px 220px 220px 220px auto;
-    grid-template-rows: 150px 150px 150px 75px 150px 75px auto;
+    grid-template-rows: 150px 150px 150px 75px 150px 75px 300px 300px 300px 75px auto;
 }
 
 h3 {font-size: 20px;}
@@ -20,6 +20,9 @@ h3 {font-size: 20px;}
 .header {grid-row-start: 1; grid-row-end: 2; grid-column-start: 2; grid-column-end: 6; text-align: left; padding: 50px; background-color:darkgrey; border: 2px solid white;}
 
 .middlebox {grid-row-start: 2; grid-row-end: 7; grid-column-start: 2; grid-column-end: 6; text-align: left; padding: 50px; background-color:white; border-left: 2px solid white; border-right: 2px solid darkgrey;}
+
+.middlefull {grid-row-start: 2; grid-row-end: last-line; grid-column-start: 2; grid-column-end: 6; text-align: left; padding: 50px; background-color:white; border-left: 2px solid white; border-right: 2px solid darkgrey;}
+
 
 .hw2 {grid-row-start: 2; grid-row-end: 3; grid-column-start: 2; grid-column-end: 3; text-align: center; padding: 50px; background-color:red; border: 2px solid white;}
 
@@ -40,6 +43,8 @@ h3 {font-size: 20px;}
 .footer {grid-row-start: 4; grid-row-end: 5; grid-column-start: 2; grid-column-end: 6; text-align: right; padding: 15px; background-color:darkgrey;border: 2px solid white; font-size: 15px;}
 
 .footerlong {grid-row-start: 6; grid-row-end: 7; grid-column-start: 2; grid-column-end: 6; text-align: right; padding: 15px; background-color:darkgrey;border: 2px solid white; font-size: 15px;}
+
+.footerfull {grid-row-start: 11; grid-row-end: last-line; grid-column-start: 2; grid-column-end: 6; text-align: right; padding: 15px; background-color:darkgrey;border: 2px solid white; font-size: 15px;}
 
 .layout a:link, a:visited {
     color: black;
@@ -63,5 +68,6 @@ h3 {font-size: 20px;}
 .menu {grid-row-start: 2; grid-row-end: 5; grid-column-start: 1; grid-column-end: 2; text-align: right; padding-right: 20px; padding-top: 20px; background-color:darkgrey; font-size: 20px; line-height: 2; font-weight: bold;}
 
 .menulong {grid-row-start: 2; grid-row-end: 7; grid-column-start: 1; grid-column-end: 2; text-align: right; padding-right: 20px; padding-top: 20px; background-color:darkgrey; font-size: 20px; line-height: 2; font-weight: bold;}
+.menufull {grid-row-start: 2; grid-row-end: last-line; grid-column-start: 1; grid-column-end: 2; text-align: right; padding-right: 20px; padding-top: 20px; background-color:darkgrey; font-size: 20px; line-height: 2; font-weight: bold;}
 
 .topleft {grid-row-start: 1; grid-row-end: 2; grid-column-start: 1; grid-column-end: 2;border: 2px solid black;}
