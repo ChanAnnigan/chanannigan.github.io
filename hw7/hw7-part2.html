@@ -10,24 +10,31 @@
 <meta name="keywords" content="CCSF, HTML, CSS, JavaScript, jQuery, homework7">
 <meta name="author" content="Chantilly Apollon">
 <style>
+#wrapper {
+	width:800px;
+	margin:0px auto;
+	text-align:left;	
+	}
+
 #navigation ul, #navigation li {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+  display: inline;
 }
 
 #navigation a {
 	background-color: rgb(204,204,204);
 	text-decoration: none;
-	font: 16px 'ColaborateLightRegular', Arial, sans-serif;
-	text-indent: 25px;
+	font: 12px 'ColaborateLightRegular', Arial, sans-serif;
+	text-indent: 10px;
 	border-top: 1px solid #ccc;
 	border-left:1px solid #ccc;
 	border-right:1px solid #999;
 	border-bottom:1px solid #999;
 	margin: 0px;
 	padding: 0px;
-	color: rgb(53,75,118);
+	color: black;
 }
 
 #navigation a:hover {
@@ -35,9 +42,10 @@
 	border-left:1px solid #999;
 	border-right:1px solid #ccc;
 	border-bottom:1px solid #ccc;
-	background-color: #555;
-	color: white;
+	background-color:pink;
+	color: black;
 }
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -46,10 +54,10 @@
 <script>
 $(document).ready(function() {
  $("#navigation").navPlugin({
-   'itemWidth': 180,
+   'itemWidth': 100,
    'itemHeight': 30,
    'navEffect': "slide",
-   'speed': 250
+   'speed': 150
  });
 }); // end ready
 
@@ -62,33 +70,64 @@ $(document).ready(function() {
         <h1>CNIT 133 - Homework 7 - Part 2</h1>
         </header>
       <main class="middlebox">
+        <div id="wrapper">
         <ul id="navigation">
             <li><a href="../index.html">Home</a></li>
+        
              <li><a href="../hw2.html">Homework 2</a>
                <ul>
                  <li><a href="../HW2-Part1.html">Part 1</a></li>
-                 <li><a href="../HW2-Part2.html">Part 2</a></li>
-                 <li><a href="http://www.ccsf.edu/en/student-services/learning-resources.html">Learning Resources</a></li>
+                 <li><a href="../HW2-Part2.html">Part 2a</a></li>
+                 <li><a href="../HW2-Part2b.html">Part 2b</a></li>
+                 <li><a href="../HW2-Part3.html">Part 3</a></li>
                </ul>
              </li>
      
-             <li><a href="http://www.download.com">Resources</a>
+             <li><a href="../hw3.html">Homework 3</a>
                <ul>
-                 <li><a href="http://www.exforsys.com/tutorials/css3/css3-introduction.html">CSS3 Tutorial</a></li>
-                 <li><a href="http://www.w3schools.com/xhtml/default.asp">XHTML Tutorial</a></li>
-                 <li><a href="http://www.w3schools.com/html5/default.asp">HTML 5 Tutorial</a></li>
+                 <li><a href="../hw3/hw3-1.html">Part 1</a></li>
+                 <li><a href="../hw3/hw3-Part2.html">Part 2</a></li>
+                 <li><a href="../hw3/hw3-Part3.html">Part 3</a></li>
+                 <li><a href="../hw3/hw3-ExtraCredit.html">Extra Credit</a></li>
                </ul>
              </li>
              
-             <li><a href="http://www.devguru.com/Technologies/ecmascript/quickref/javascript_index.html">JavaScript</a>
+             <li><a href="../hw4.html">Homework 4</a>
                <ul>
-                 <li><a href="http://wsabstract.com/javaindex.shtml">Wsabstract tutorials</a></li>
-                 <li><a href="http://www.w3schools.com/ajax/default.asp">Ajax Tutorial</a></li>
-                 <li><a href="http://www.w3schools.com/jquery/default.asp">jQuery Tutorial</a></li>
+                 <li><a href="../hw4/hw4-part1.html">Part 1</a></li>
+                 <li><a href="../hw4/hw4-part2.html">Part 2</a></li>
+                 <li><a href="../hw4/hw4-ExtraCredit.html">Extra Credit</a></li>
                </ul>
              </li>
+    
+             <li><a href="../hw5.html">Homework 5</a>
+              <ul>
+                <li><a href="../hw5/hw5-part1.html">Part 1</a></li>
+                <li><a href="../hw5/hw5-part2.html">Part 2</a></li>
+                <li><a href="../hw5/hw5-part3.html">Part 3</a></li>
+              </ul>
+            </li>
+            <li><a href="../hw6.html">Homework 6</a>
+              <ul>
+                <li><a href="../hw6/hw6-part1.html">Part 1</a></li>
+                <li><a href="../hw6/hw6-part2.html">Part 2</a></li>
+                <li><a href="../hw6/hw6-part3.html">Part 3</a></li>
+              </ul>
+            </li>
+            <li><a href="../hw7.html">Homework 7</a>
+              <ul>
+                <li><a href="../hw7/hw7-part1.html">Part 1</a></li>
+                <li><a href="../hw7/hw7-part2.html">Part 2</a></li>
+              </ul>
+            </li>
+            <li><a href="../hw8.html">Homework 8</a>
+              <ul>
+                <li><a href="../hw8/hw8-part1.html">Part 1</a></li>
+                <li><a href="../hw8/hw8-part2.html">Part 2</a></li>
+              </ul>
+            </li>
          </ul>
-
+        </div>
         </main>
     <div class="footerlong">
     <p>Chantilly Apollon, PhD</p><p><a href="mailto:cmunson@mail.ccsf.edu">&#9758; cmunson@mail.ccsf.edu</a></p>
