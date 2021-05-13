@@ -7,7 +7,7 @@ body{
     margin:0;
     margin-left: auto;
     margin-right: auto;
-    max-width: 1200px;
+    max-width: 1500px;
 }
 .layout {
     display: grid;
@@ -21,13 +21,11 @@ h3 {font-size: 20px;}
 
 .middlebox {grid-row-start: 2; grid-row-end: 6; grid-column-start: 2; grid-column-end: 8; text-align: left; padding: 50px; background-color:white; border-left: 2px solid white; border-right: 2px solid darkgrey;}
 
-.gridrow2column2 {grid-row-start: 2; grid-row-end: 3; grid-column-start: 2; grid-column-end: 3; text-align: left; padding: 50px; background-color:white; border-left: 2px solid white; border-right: 2px solid darkgrey;}
+.gridrow2column2 {grid-row-start: 2; grid-row-end: 3; grid-column-start: 2; text-align: left; padding: 50px; background-color:white; border-left: 2px solid white; border-right: 2px solid darkgrey;}
 
 .gridrow2column3 {
     grid-row-start: 2; 
     grid-row-end: 3; 
-    grid-column-start: 3; 
-    grid-column-end: 4; 
     text-align: left; 
     padding: 50px; 
     background-color:white; 
@@ -35,10 +33,9 @@ h3 {font-size: 20px;}
     border-right: 2px solid darkgrey;}
 
     .gridrow2column4 {
+
         grid-row-start: 2; 
-        grid-row-end: 3; 
-        grid-column-start: 4; 
-        grid-column-end: 5; 
+
         text-align: left; 
         padding: 50px; 
         background-color:white; 
@@ -55,6 +52,13 @@ h3 {font-size: 20px;}
         background-color:white; 
         border-left: 2px solid white; 
         border-right: 2px solid darkgrey;}
+
+.rightside {
+    grid-row-start: 4;
+    grid-row-end: last-line;
+    grid-column-start: 4;
+    grid-column-end: 8;
+}
 
 .footerlong {grid-row-start: 6; grid-row-end: 7; grid-column-start: 2; grid-column-end: 6; text-align: right; padding: 15px; background-color:darkgrey;border: 2px solid white; font-size: 15px;}
 
