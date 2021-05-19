@@ -20,11 +20,24 @@
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
+        width: 145px;
         }
-#Foundations1, #Foundations2, #CareerLaunch {
+#Foundations1, #Foundations2, #CareerLaunch, #StudentResources, #FacultyResources 
+{
     font: arial;
     font-size: 12px;
 }
+
+td {width: 150px;
+text-align: center;}
+
+table.calendar {width: 600px;
+            text-align: center;
+            border-width: 1px;}
+
+td.calendar {width: 150px;
+            text-align: center;
+            border-width: 1px;}
 </style>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <!-- <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> -->
@@ -120,54 +133,140 @@
     });
     </script>
 
+<script>
+    $(function() {
+
+     $( "#FacultyResources" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+    
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+     });
+    
+     $( "#opener5" ).click(function() {
+      $( "#FacultyResources" ).dialog( "open" );
+     });
+    });
+    </script>
+
 </head>
 <body>
     <div class="header">
         <h1>iROCKET Launch Pad</h1> 
     </div>
 <div class="middlebox">
-    <button type="button" class="button" onclick="myFunction()">Calendar</button>
+    <table><tr><td>
+    <button type="button" class="button" onclick="myFunction()">ilios<br>Calendar</button>
     <script>
         function myFunction(){
             window.open("https://curriculum.ucsf.edu");
         }
     </script>
-    <button type="button" class="button" id="opener">Foundations 1</button>
+    </td>
+    <td>
+    <button type="button" class="button" id="opener">Foundations<br>1</button>
     <div id="Foundations1" title="Foundations 1">
-        <p>Foundations 1</p>
         <ul>
-        <li><a href="">IDS 121A</a></li>
+            <li><a href="https://courses.ucsf.edu/course/view.php?id=3976">Course Overview</a></li>
+        <li><a href="https://courses.ucsf.edu/course/view.php?id=3976&section=1">IDS 121A</a></li>
+        <li><a href="https://courses.ucsf.edu/course/view.php?id=3976&section=2">IDS 121B</a></li>
+        <li><a href="https://courses.ucsf.edu/course/view.php?id=3976&section=4">IDS 121C</a></li>
         </ul>
     </div>
-
-        <button type="button" class="button" id="opener2">Foundations 2</button>
+</td>
+<td>
+        <button type="button" class="button" id="opener2">Foundations<br>2</button>
         
         <div id="Foundations2" title="Foundations 2">
-            <p>Foundations 2</p>
             <ul>
             <li><a href="">Preparation Resources</a></li>
             </ul>
         </div>
-        <button type="button" class="button" id="opener3">Career Launch</button>
+    </td> 
+<td>
+        <button type="button" class="button" id="opener3">Career<br>Launch</button>
         
         <div id="CareerLaunch" title="Career Launch">
-            <p>Career Launch</p>
             <ul>
             <li><a href="">Putt stuff here</a></li>
+            <li><a href="https://courses.ucsf.edu/course/view.php?id=3009#section-6">Speciality Practice Ambulatory Sub-Internship (SPAN)</a></li>
             </ul>
 </div>
+</td>
+<td>
         <button type="button" class="button" id="opener4">Student Resources</button>
         
         <div id="StudentResources" title="Student Resources">
-            <p>Student Resources</p>
             <ul>
             <li><a href="">Putt stuff here</a></li>
             </ul>
         </div>
-        <br><br>
     </div>
+</td>
+<td>
+    <button type="button" class="button" id="opener5">Faculty Resources</button>
     
+    <div id="FacultyResources" title="Faculty Resources">
+        <ul>
+        <li><a href="">Putt stuff here</a></li>
+        </ul>
+    </div>
+</div>
+</td>
+</tr></table>
+<br>
+<div class="calendar">
+
+<table>
+<tr>
+<td>
+Calendar Color Key
+</td> 
+</tr>
+<tr>
+    <td>
+        
+    </td> 
+    </tr>
+    <tr>
+        <td>Always Required</td> 
+        <td>Not required unless noted on Session Description</td>
+        <td>Optional</td>
+        </tr>
+        <tr>
+            <td> Small Group / Clinical Skills</td> 
+            <td>Large Group</td>
+            <td>Other Sessions</td>
+
+            </tr>
+            <tr>
+                <td> 
+                </td> 
+                <td></td>
+                <td></td>
+                </tr>
+</table>
+</div>
     
+<br>
+<h2>Provide Feedback</h2>
+
+<table><tr><td>
+    <button type="button" class="button" onclick="myFunction2()">LabSpot<br>Login</button>
+    <script>
+        function myFunction2(){
+            window.open("https://lapspot");
+        }
+    </script>
+    </td>
+
+</tr></table>
 </div>
 <footer class="footerlong">
     <h1 style="text-align: left;">Need Help? Can't find your course?<br>Contact the iROCKET Help Desk:<a href="mailto:irocket@ucsf.edu">&#9758; irocket@ucsf.edu</a></h1>
