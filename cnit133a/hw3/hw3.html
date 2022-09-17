@@ -51,8 +51,15 @@ d3.json("hw3data.json")
       for (term in data) {
         students.push(+data[term].students)
       }
-/* define size of svg, width of bars, and space between bars */
-var height = 300, width = 500, barW = 40;
+var tooltip = d3.select('body').append('div')
+  .style('position', 'absolute')
+  .style('padding', '0 10px')
+  .style('background', '#7A577A')
+  .style('border-radius', '5px')
+  .style('opacity', 0);
+
+  /* define size of svg, width of bars, and space between bars */
+var height = 300, width = 500;
 /* y-axis range matches the data */
 var ySpace = d3.scaleLinear()
       .domain([0, d3.max(students) ])
@@ -61,7 +68,7 @@ var ySpace = d3.scaleLinear()
 var xSpacing = d3.scaleBand()
       .domain(d3.range(0, students.length))
       .range ([0, (width - 10)])
-      .padding(0.1);
+      .padding(0.2); /* spacing between bars */
 var graph = d3.select('#chart')
               .append('svg')
               .attr('width', width)
@@ -71,11 +78,30 @@ graph.selectAll('rect')
   .data(students)
   .enter()
   .append('rect')
-  .style('fill', '#400036')
+  .style('fill', '#7A577A')
+  .style('stroke', '#105057')
+  .style('stroke-width', '5')
   .attr('width', xSpacing.bandwidth)
   .attr('height', function(d) { return ySpace(d);})
   .attr('x', function(d, i) { return xSpacing(i); })
-  .attr('y', function(d) { return height - ySpace(d)});
+      
+  .attr('y', function(d) { return height - ySpace(d)})
+  .on('mouseover', function(event, d) {
+    const[x, y] = d3.pointer(event)
+    tooltip.transition()
+      .style('opacity', .8)
+    tooltip.html(d)
+       .style('left', (x + 20) + 'px')
+       .style('top', (height - (ySpace(d) - 20)) + 'px')
+    d3.select(this)
+        .style('fill', '#FF81D0')
+      })
+  .on('mouseout', function(event, d) {
+    tooltip.transition()
+      .style('opacity', 0)
+        d3.select(this)
+        .style('fill', '#7A577A')
+      });
   });
 </script>
 <script>
