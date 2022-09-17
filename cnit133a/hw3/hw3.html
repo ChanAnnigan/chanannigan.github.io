@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="D3 homework">
+<title>D3 Homework</title>
+<style>
+/* choosing a different color combination 
+#chart rect{
+  fill: #4aaeea;
+} */
+
+#chart text{
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end; 
+}
+
+.axis text{
+  font: 10px sans-serif;
+}
+
+.axis path, .axis line{
+  fill: none;
+  stroke : #fff;
+  shape-rendering: crispEdges;
+}
+
+body{
+  background: #1a1a1a;
+  color : #eaeaea;
+  padding : 10px;
+}
+</style>
+
+ <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
+ <script src="d3.min.js"></script>
+</head>
+<body>
+<div id="chart"></div> 
+</body>
+
+
+<script>
+
+var students =[];
+var term = [];
+/* import data from json file into the variable students */
+d3.json("hw3data.json")
+  .then((data) => {
+      for (term in data) {
+        students.push(+data[term].students)
+      }
+/* define size of svg, width of bars, and space between bars */
+var height = 300, width = 500, barW = 40;
+/* y-axis range matches the data */
+var ySpace = d3.scaleLinear()
+      .domain([0, d3.max(students) ])
+      .range ([0, (height - 10) ]); /* added some space between largest bar value and top of svg */
+/* x-axis range matches the number of data points */
+var xSpacing = d3.scaleBand()
+      .domain(d3.range(0, students.length))
+      .range ([0, (width - 10)])
+      .padding(0.1);
+var graph = d3.select('#chart')
+              .append('svg')
+              .attr('width', width)
+              .attr('height', height)
+              .style('background', '#898C8B');
+graph.selectAll('rect')
+  .data(students)
+  .enter()
+  .append('rect')
+  .style('fill', '#400036')
+  .attr('width', xSpacing.bandwidth)
+  .attr('height', function(d) { return ySpace(d);})
+  .attr('x', function(d, i) { return xSpacing(i); })
+  .attr('y', function(d) { return height - ySpace(d)});
+  });
+</script>
+<script>
+
+</script>
