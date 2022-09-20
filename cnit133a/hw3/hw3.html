@@ -37,43 +37,57 @@ body{
  <script src="d3.min.js"></script>
 </head>
 <body>
+  <h1>Student enrollment by term</h1>
 <div id="chart"></div> 
 </body>
 
 
 <script>
 
-var students =[];
+var students = [];
 var term = [];
 /* import data from json file into the variable students */
 d3.json("hw3data.json")
   .then((data) => {
       for (term in data) {
         students.push(+data[term].students)
+      
       }
+
+
 var tooltip = d3.select('body').append('div')
   .style('position', 'absolute')
   .style('padding', '0 10px')
   .style('background', '#7A577A')
   .style('border-radius', '5px')
-  .style('opacity', 0);
+  .style('opacity', 0)
+  .style('font-size', '12px');
 
-  /* define size of svg, width of bars, and space between bars */
-var height = 300, width = 500;
+  var margin = { top: 20, right: 20, bottom: 30, left: 40};
+  
+/* define size of svg, width of bars, and space between bars */
+var height = 400 - margin.top - margin.bottom, width = 600 - margin.left - margin.right;
+
 /* y-axis range matches the data */
 var ySpace = d3.scaleLinear()
       .domain([0, d3.max(students) ])
       .range ([0, (height - 10) ]); /* added some space between largest bar value and top of svg */
+
 /* x-axis range matches the number of data points */
 var xSpacing = d3.scaleBand()
       .domain(d3.range(0, students.length))
       .range ([0, (width - 10)])
       .padding(0.2); /* spacing between bars */
+var verticalGuide = d3.scaleLinear()
+      .domain([0, d3.max(students)])
+      .range([height, 0]);
 var graph = d3.select('#chart')
               .append('svg')
-              .attr('width', width)
-              .attr('height', height)
-              .style('background', '#898C8B');
+              .attr('width', width + margin.left + margin.right)
+              .attr('height', height + margin.top + margin.bottom)
+              .style('background', '#898C8B')
+              .append('g')
+              .attr('transform', 'translate('+ margin.left + ', ' + margin.top + ')');
 graph.selectAll('rect')
   .data(students)
   .enter()
@@ -86,13 +100,15 @@ graph.selectAll('rect')
   .attr('x', function(d, i) { return xSpacing(i); })
       
   .attr('y', function(d) { return height - ySpace(d)})
+  .attr('rx', '5')
+  .attr('ry', '5')
   .on('mouseover', function(event, d) {
     const[x, y] = d3.pointer(event)
     tooltip.transition()
       .style('opacity', .8)
-    tooltip.html(d)
+    tooltip.html('Students: ' + d + '<br>Year: ' + term[d])
        .style('left', (x + 20) + 'px')
-       .style('top', (height - (ySpace(d) - 20)) + 'px')
+       .style('top', (height - (ySpace(d) -100)) + 'px')
     d3.select(this)
         .style('fill', '#FF81D0')
       })
@@ -102,7 +118,20 @@ graph.selectAll('rect')
         d3.select(this)
         .style('fill', '#7A577A')
       });
-  });
+  
+
+
+graph.append('g')
+  .call(d3.axisLeft(ySpace).scale(verticalGuide));
+
+graph.append('g')
+  .call(d3.axisBottom(xSpacing))
+  .attr('transform', 'translate(0, ' + height + ')');
+  
+  
+});
+
+ 
 </script>
 <script>
 
